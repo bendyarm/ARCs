@@ -284,6 +284,17 @@ All grammar and documentation repositories will also need to be updated.
 | closure              | function             |
 | name.network         | name.network         |
 
+| Leo V1        ==> | Leo V2 & Aleo Instructions V2 | <== Aleo Instructions V1 |
+|-------------------|-------------------------------|--------------------------|
+| ---               | program                       | program                  |
+| ∅                 | interface                     | ∅                        |
+| mapping           | mapping                       | mapping                  |
+| circuit           | struct                        | interface                |
+| record            | record                        | record                   |
+| @program function | transition                    | function                 |
+| function          | function                      | closure                  |
+| name.network      | name.network                  | name.network             |
+
 
 [//]: # (// Todo: Keep the two tables above or the single table below.)
 [//]: # ()
