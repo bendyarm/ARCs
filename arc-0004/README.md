@@ -1,5 +1,5 @@
 ---
-arc: 4 Add an unused ARC number. **DO NOT ADD LEADING ZEROS.**
+arc: 4
 title: Flagged Operations for Conditional Code
 authors: @bendyarm, @d0cd, @acoglio, @mikebenfield
 discussion: [https://github.com/ProvableHQ/ARCs/discussions/89](89)
