@@ -168,7 +168,5 @@ This change does not affect security or regulatory issues.
 
 ## References
 
-This section should provide any materials that would help reviewers have better context on the nature of the ARC proposal.
-
 Example Leo bug:
 https://github.com/AleoHQ/leo/issues/27482
