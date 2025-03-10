@@ -61,13 +61,20 @@ operation have the same semantics as the current halting instruction
 except for the halting behavior and extra return value, for ease of
 use by compilers.
 
+Note that most opcodes compile into different operations based on the types
+of the operands, and those operations sometimes have different halting
+behavior.  For example, `add` cannot halt when given field, group or scalar
+arguments, but it can halt when given integer arguments.  So `add.flagged`
+will not be implemented for field, group or scalar arguments. We add notes
+for these cases in the table below.
+
 | Current Halting Opcode | New Flagged Opcode | notes |
 |:-------------------:|:-----------------------:|:--------------------------:|
 | abs | abs.flagged |
-| add | add.flagged |
+| add | add.flagged | add.flagged implemented only for integer types.
 | assert.eq | is.eq | We probably don't need a separate assert.(n)eq.flagged;
 | assert.neq | is.neq | instead, just use the existing is.(n)eq.
-| cast | cast.flagged | As of now, docs don't say what causes cast to halt.
+| cast | cast.flagged | As of now, docs don't say what causes cast to halt. TBD.
 | commit.bhp256 | commit.bhp256.flagged |
 | commit.bhp512 | commit.bhp512.flagged |
 | commit.bhp768 | commit.bhp768.flagged |
@@ -84,9 +91,9 @@ use by compilers.
 | hash.ped128 | hash.ped128.flagged |
 | inv | inv.flagged |
 | mod | mod.flagged |
-| mul | mul.flagged |
-| neg | neg.flagged |
-| pow | pow.flagged |
+| mul | mul.flagged | mul.flagged implemented only for integer types.
+| neg | neg.flagged | neg.flagged implemented only for signed integer types.
+| pow | pow.flagged | pow.flagged implemented only for integer types.
 | rem | rem.flagged | rem can halt on underflow and divide by zero.
 | rem.w | rem.w.flagged | rem.w can halt on divide by zero.
 | shl | shl.flagged | As of now, Aleo docs don't say what causes shl or shr to halt.
@@ -94,7 +101,7 @@ use by compilers.
 ||                            | exceeds the bit size of the first argument, and also shl halts if the
 ||                            | shifted result does not fit within the type of the first argument.
 | sqrt | sqrt.flagged |
-| sub | sub.flagged |
+| sub | sub.flagged | sub.flagged implemented only for integer types.
 
 ### Test Cases
 
